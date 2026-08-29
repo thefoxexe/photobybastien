@@ -1,5 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { getScenario } from "../data/scenarios";
+import { getMenuPath } from "../data/camera";
+import MenuPathCard from "../components/MenuPathCard";
 
 export default function ScenarioDetail() {
   const { id = "" } = useParams();
@@ -100,6 +102,25 @@ export default function ScenarioDetail() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section>
+        <div className="mb-4 flex items-end justify-between">
+          <h2 className="text-base font-semibold text-ink-100">
+            📍 Où régler ça sur le Z6III
+          </h2>
+          <Link to="/boitier" className="text-xs font-medium text-amber-400 hover:underline">
+            Guide complet du boîtier →
+          </Link>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {scenario.relatedMenuPaths
+            .map((id) => getMenuPath(id))
+            .filter((entry) => entry !== undefined)
+            .map((entry) => (
+              <MenuPathCard key={entry.id} entry={entry} />
+            ))}
+        </div>
       </section>
     </div>
   );

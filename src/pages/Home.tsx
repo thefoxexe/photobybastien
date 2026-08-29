@@ -20,6 +20,12 @@ const QUICK_LINKS = [
     title: "Tutos par type de photo",
     desc: "Portrait, rue, rallye auto, paysage, basse lumière : réglages précis + technique, spécial Nikon Z6III.",
   },
+  {
+    to: "/boitier",
+    icon: "🎛️",
+    title: "Prise en main du Z6III",
+    desc: "Où se trouve chaque bouton, et le chemin de menu exact pour chaque réglage évoqué dans les tutos.",
+  },
 ];
 
 export default function Home() {
@@ -54,7 +60,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-3">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {QUICK_LINKS.map((item) => (
           <Link
             key={item.to}

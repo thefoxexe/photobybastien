@@ -23,6 +23,8 @@ export interface Scenario {
     aperture: number;
     shutter: number;
   };
+  // Réglages du guide boîtier (src/data/camera.ts) pertinents pour cette situation
+  relatedMenuPaths: string[];
 }
 
 export const SCENARIOS: Scenario[] = [
@@ -71,6 +73,7 @@ export const SCENARIOS: Scenario[] = [
       "Écran orientable pour cadrer bas ou en portrait à hauteur d'enfant.",
     ],
     calculatorPreset: { lightId: "open-shade", aperture: 2, shutter: 1 / 200 },
+    relatedMenuPaths: ["subject-detection", "auto-iso", "exposure-compensation", "aperture"],
   },
   {
     id: "quotidien",
@@ -117,6 +120,7 @@ export const SCENARIOS: Scenario[] = [
       "Double emplacement carte CFexpress/SD : shoote en rafale sans crainte du buffer.",
     ],
     calculatorPreset: { lightId: "hazy-sun", aperture: 5.6, shutter: 1 / 250 },
+    relatedMenuPaths: ["auto-iso", "af-mode", "drive-mode"],
   },
   {
     id: "rallye",
@@ -166,6 +170,7 @@ export const SCENARIOS: Scenario[] = [
       "Stabilisation 5 axes utile pour garder l'horizon droit pendant le pivot du filé.",
     ],
     calculatorPreset: { lightId: "full-sun", aperture: 11, shutter: 1 / 60 },
+    relatedMenuPaths: ["af-mode", "subject-detection", "back-button-focus", "drive-mode", "pre-release-capture"],
   },
   {
     id: "paysage",
@@ -212,6 +217,7 @@ export const SCENARIOS: Scenario[] = [
       "Format RAW 12-bit haute efficacité pour garder une belle marge de récupération des hautes lumières/ombres au traitement.",
     ],
     calculatorPreset: { lightId: "hazy-sun", aperture: 11, shutter: 1 / 60 },
+    relatedMenuPaths: ["focus-shift", "aperture"],
   },
   {
     id: "basse-lumiere",
@@ -258,6 +264,7 @@ export const SCENARIOS: Scenario[] = [
       "Stabilisation 5 axes jusqu'à ~8 stops annoncés selon l'objectif : un vrai filet de sécurité en basse lumière statique.",
     ],
     calculatorPreset: { lightId: "indoor-dim", aperture: 1.8, shutter: 1 / 80 },
+    relatedMenuPaths: ["auto-iso", "exposure-compensation", "aperture"],
   },
 ];
 
