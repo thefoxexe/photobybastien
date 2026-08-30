@@ -46,18 +46,38 @@ export default function Home() {
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
-            to="/calculateur"
+            to="/debuter"
             className="rounded-full bg-amber-400 px-6 py-3 text-sm font-semibold text-ink-950 transition hover:bg-amber-500"
           >
-            Ouvrir le calculateur →
+            🧭 Je débute, guide-moi →
           </Link>
           <Link
-            to="/triangle"
+            to="/calculateur"
             className="rounded-full border border-ink-700 px-6 py-3 text-sm font-semibold text-ink-100 transition hover:border-ink-600 hover:bg-ink-800"
           >
-            Revoir le triangle d'exposition
+            Ouvrir le calculateur
           </Link>
         </div>
+      </section>
+
+      <section className="rounded-2xl border border-amber-400/30 bg-gradient-to-br from-amber-400/10 to-transparent p-6 sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-wide text-amber-400">
+          Jamais touché un appareil photo ?
+        </p>
+        <h2 className="mt-1 text-xl font-bold text-ink-100 sm:text-2xl">
+          Le guide complet pour grand débutant
+        </h2>
+        <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-300">
+          Sortir le boîtier de sa boîte, le tenir correctement, comprendre ce que tu vois dans le
+          viseur, et prendre tes toutes premières photos en mode P — pas à pas, sans rien
+          supposer que tu saches déjà.
+        </p>
+        <Link
+          to="/debuter"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:underline"
+        >
+          Commencer le guide de démarrage →
+        </Link>
       </section>
 
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

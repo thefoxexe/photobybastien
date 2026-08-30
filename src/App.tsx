@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import BeginnerGuide from "./pages/BeginnerGuide";
 import Triangle from "./pages/Triangle";
 import Calculator from "./pages/Calculator";
 import ScenarioList from "./pages/ScenarioList";
@@ -14,6 +15,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="debuter" element={<BeginnerGuide />} />
         <Route path="triangle" element={<Triangle />} />
         <Route path="calculateur" element={<Calculator />} />
         <Route path="scenarios" element={<ScenarioList />} />

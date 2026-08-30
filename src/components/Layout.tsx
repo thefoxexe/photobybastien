@@ -2,11 +2,12 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const NAV_ITEMS = [
   { to: "/", label: "Accueil", icon: "🏠", end: true },
+  { to: "/debuter", label: "Débuter", icon: "🧭", end: false },
   { to: "/triangle", label: "Triangle", icon: "🔺", end: false },
-  { to: "/calculateur", label: "Calculateur", icon: "🧮", end: false },
+  { to: "/calculateur", label: "Calculateur", shortLabel: "Calcul", icon: "🧮", end: false },
   { to: "/scenarios", label: "Tutos", icon: "📸", end: false },
   { to: "/boitier", label: "Boîtier", icon: "🎛️", end: false },
-  { to: "/glossaire", label: "Glossaire", icon: "📖", end: false },
+  { to: "/glossaire", label: "Glossaire", shortLabel: "Lexique", icon: "📖", end: false },
 ];
 
 function navLinkClass(isActive: boolean) {
@@ -58,7 +59,7 @@ export default function Layout() {
 
       <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-800 bg-ink-900/95 backdrop-blur md:hidden">
         <div
-          className="mx-auto grid max-w-6xl grid-cols-6"
+          className="mx-auto grid max-w-6xl grid-cols-7"
           style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         >
           {NAV_ITEMS.map((item) => (
@@ -68,7 +69,7 @@ export default function Layout() {
               end={item.end}
               className={({ isActive }) =>
                 [
-                  "flex flex-col items-center gap-0.5 py-2.5 text-[11px] font-medium",
+                  "flex flex-col items-center gap-0.5 px-0.5 py-2.5 text-[10px] font-medium",
                   isActive ? "text-amber-400" : "text-ink-400",
                 ].join(" ")
               }
@@ -76,7 +77,7 @@ export default function Layout() {
               <span className="text-lg leading-none" aria-hidden>
                 {item.icon}
               </span>
-              {item.label}
+              <span className="truncate leading-none">{item.shortLabel ?? item.label}</span>
             </NavLink>
           ))}
         </div>
