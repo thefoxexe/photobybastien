@@ -59,7 +59,7 @@ export default function CameraDiagram({ zone }: { zone: CameraZone }) {
             onClick={() => setActive(c.id)}
             style={{ left: `${c.x}%`, top: `${c.y}%` }}
             className={[
-              "absolute flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border text-[11px] font-bold transition",
+              "absolute flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm border text-[11px] font-bold transition",
               c.id === active
                 ? "border-amber-400 bg-amber-400 text-ink-950 scale-110"
                 : "border-ink-600 bg-ink-800 text-ink-200 hover:border-amber-400/60",
@@ -69,7 +69,7 @@ export default function CameraDiagram({ zone }: { zone: CameraZone }) {
             {i + 1}
           </button>
         ))}
-        <span className="absolute left-3 top-3 rounded-full bg-ink-950/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-ink-400">
+        <span className="absolute left-3 top-3 rounded-sm bg-ink-950/80 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-ink-400">
           {ZONE_TITLES[zone]} · schéma simplifié
         </span>
       </div>
@@ -93,7 +93,7 @@ export default function CameraDiagram({ zone }: { zone: CameraZone }) {
                 c.id === active ? "bg-ink-800 text-amber-400" : "text-ink-400 hover:text-ink-100",
               ].join(" ")}
             >
-              <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ink-800 text-[10px] font-bold">
+              <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-ink-800 text-[10px] font-bold">
                 {i + 1}
               </span>
               {c.label}

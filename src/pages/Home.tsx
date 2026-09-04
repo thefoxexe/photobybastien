@@ -31,8 +31,8 @@ const QUICK_LINKS = [
 export default function Home() {
   return (
     <div className="flex flex-col gap-14">
-      <section className="pt-4 sm:pt-10">
-        <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-ink-800 px-3 py-1 text-xs font-medium text-amber-400">
+      <section className="viewfinder-corners pb-2 pl-5 pt-4 sm:pt-10">
+        <p className="mb-3 inline-flex items-center gap-2 rounded-sm bg-ink-800 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-amber-400">
           Optimisé Nikon Z6III · utilisable hors ligne sur le terrain
         </p>
         <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-ink-100 sm:text-5xl">
@@ -47,13 +47,13 @@ export default function Home() {
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
             to="/debuter"
-            className="rounded-full bg-amber-400 px-6 py-3 text-sm font-semibold text-ink-950 transition hover:bg-amber-500"
+            className="rounded-sm bg-amber-400 px-6 py-3 text-sm font-bold uppercase tracking-wide text-ink-950 transition hover:bg-amber-500"
           >
             🧭 Je débute, guide-moi →
           </Link>
           <Link
             to="/calculateur"
-            className="rounded-full border border-ink-700 px-6 py-3 text-sm font-semibold text-ink-100 transition hover:border-ink-600 hover:bg-ink-800"
+            className="rounded-sm border border-ink-700 px-6 py-3 text-sm font-bold uppercase tracking-wide text-ink-100 transition hover:border-ink-600 hover:bg-ink-800"
           >
             Ouvrir le calculateur
           </Link>

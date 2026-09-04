@@ -144,7 +144,7 @@ export default function Calculator() {
               key={opt.id}
               onClick={() => setSolveFor(opt.id)}
               className={[
-                "rounded-full px-4 py-2 text-sm font-medium transition",
+                "rounded-sm px-4 py-2 text-sm font-semibold uppercase tracking-wide transition",
                 solveFor === opt.id
                   ? "bg-amber-400 text-ink-950"
                   : "bg-ink-800 text-ink-300 hover:text-ink-100",
@@ -201,7 +201,7 @@ export default function Calculator() {
 
       <section className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-6">
         <h2 className="text-base font-semibold text-ink-100">Réglage recommandé</h2>
-        <p className="mt-2 text-2xl font-bold text-amber-400">
+        <p className="font-readout mt-2 text-2xl font-bold text-amber-400">
           {formatAperture(solveFor === "aperture" ? (result.value as number) : aperture)} ·{" "}
           {formatShutter(solveFor === "shutter" ? (result.value as number) : shutter)} ·{" "}
           {formatIso(solveFor === "iso" ? (result.value as number) : iso)}
@@ -253,12 +253,14 @@ function SliderCard({
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold text-ink-100">{title}</h3>
         {resultBadge && (
-          <span className="rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-bold uppercase text-ink-950">
+          <span className="rounded-sm bg-amber-400 px-2 py-0.5 text-[10px] font-bold uppercase text-ink-950">
             Calculé
           </span>
         )}
       </div>
-      <p className="text-2xl font-bold text-ink-100">{resultBadge ? resultValue : value}</p>
+      <p className="font-readout text-2xl font-bold text-ink-100">
+        {resultBadge ? resultValue : value}
+      </p>
       <input
         type="range"
         min={min}

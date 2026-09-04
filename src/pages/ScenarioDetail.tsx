@@ -32,7 +32,7 @@ export default function ScenarioDetail() {
         </p>
         <Link
           to={calculatorLink}
-          className="mt-4 inline-flex items-center gap-2 rounded-full bg-amber-400 px-5 py-2.5 text-sm font-semibold text-ink-950 hover:bg-amber-500"
+          className="mt-4 inline-flex items-center gap-2 rounded-sm bg-amber-400 px-5 py-2.5 text-sm font-semibold text-ink-950 hover:bg-amber-500"
         >
           🧮 Ouvrir avec ces réglages préremplis
         </Link>
@@ -71,7 +71,7 @@ export default function ScenarioDetail() {
         <ol className="mt-4 flex flex-col gap-3">
           {scenario.steps.map((step, i) => (
             <li key={i} className="flex gap-3 text-sm leading-relaxed text-ink-300">
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-400 text-xs font-bold text-ink-950">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm bg-amber-400 text-xs font-bold text-ink-950">
                 {i + 1}
               </span>
               {step}

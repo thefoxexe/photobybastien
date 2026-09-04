@@ -1,8 +1,8 @@
 import { PNG } from "pngjs";
 import { writeFileSync } from "node:fs";
 
-const BG = [10, 10, 13]; // ink-950
-const FG = [245, 165, 36]; // amber-400
+const BG = [5, 5, 5]; // ink-950
+const FG = [255, 225, 0]; // amber-400 (jaune Nikon)
 
 function makeIcon(size) {
   const png = new PNG({ width: size, height: size });
@@ -32,7 +32,7 @@ function makeIcon(size) {
           color = BG;
         } else {
           const segment = Math.floor(((angle + Math.PI) / (2 * Math.PI)) * bladeCount);
-          color = segment % 2 === 0 ? FG : [30, 22, 8];
+          color = segment % 2 === 0 ? FG : [26, 26, 26];
         }
       }
 

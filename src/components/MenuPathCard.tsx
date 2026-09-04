@@ -8,7 +8,7 @@ export default function MenuPathCard({ entry }: { entry: MenuPathEntry }) {
         {!entry.verified && (
           <span
             title="Libellé indicatif, à confirmer avec le manuel officiel"
-            className="shrink-0 rounded-full bg-ink-800 px-2 py-0.5 text-[10px] font-medium text-ink-500"
+            className="shrink-0 rounded-sm bg-ink-800 px-2 py-0.5 text-[10px] font-medium text-ink-500"
           >
             à vérifier
           </span>

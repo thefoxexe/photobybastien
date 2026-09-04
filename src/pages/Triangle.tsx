@@ -74,7 +74,7 @@ export default function Triangle() {
         <div className="flex flex-col gap-4 rounded-2xl border border-ink-800 bg-ink-900 p-5">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-semibold text-ink-100">Ouverture (diaphragme)</h2>
-            <span className="rounded-full bg-ink-800 px-3 py-1 text-sm font-bold text-amber-400">
+            <span className="font-readout rounded-sm bg-ink-800 px-3 py-1 text-sm font-bold text-amber-400">
               {formatAperture(aperture)}
             </span>
           </div>
@@ -108,7 +108,7 @@ export default function Triangle() {
         <div className="flex flex-col gap-4 rounded-2xl border border-ink-800 bg-ink-900 p-5">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-semibold text-ink-100">Vitesse d'obturation</h2>
-            <span className="rounded-full bg-ink-800 px-3 py-1 text-sm font-bold text-amber-400">
+            <span className="font-readout rounded-sm bg-ink-800 px-3 py-1 text-sm font-bold text-amber-400">
               {formatShutter(shutter)}
             </span>
           </div>
@@ -148,7 +148,7 @@ export default function Triangle() {
         <div className="flex flex-col gap-4 rounded-2xl border border-ink-800 bg-ink-900 p-5">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-semibold text-ink-100">ISO (sensibilité)</h2>
-            <span className="rounded-full bg-ink-800 px-3 py-1 text-sm font-bold text-amber-400">
+            <span className="font-readout rounded-sm bg-ink-800 px-3 py-1 text-sm font-bold text-amber-400">
               {formatIso(iso)}
             </span>
           </div>

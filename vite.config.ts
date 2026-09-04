@@ -16,8 +16,8 @@ export default defineConfig({
         short_name: 'Photo Guide',
         description:
           "Triangle d'exposition, calculateur de réglages et tutos photo par situation, spécial Nikon Z6III.",
-        theme_color: '#0a0a0d',
-        background_color: '#0a0a0d',
+        theme_color: '#050505',
+        background_color: '#050505',
         display: 'standalone',
         start_url: '/',
         icons: [

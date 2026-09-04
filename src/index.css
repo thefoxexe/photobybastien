@@ -2,20 +2,34 @@
 
 @theme {
   --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
-  --color-ink-950: #0a0a0d;
-  --color-ink-900: #111116;
-  --color-ink-850: #16171e;
-  --color-ink-800: #1c1d26;
-  --color-ink-700: #2a2b36;
-  --color-ink-600: #3d3f4d;
-  --color-ink-400: #7a7d90;
-  --color-ink-300: #a6a8b8;
-  --color-ink-100: #e8e8ee;
-  --color-amber-400: #f5a524;
-  --color-amber-500: #e8940f;
-  --color-signal-blue: #3b9dff;
+  --font-display: "Oswald", "Inter", system-ui, sans-serif;
+  --font-readout: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+
+  /* Noir neutre "boîtier", sans dominante bleutée */
+  --color-ink-950: #050505;
+  --color-ink-900: #0d0d0d;
+  --color-ink-850: #131313;
+  --color-ink-800: #1a1a1a;
+  --color-ink-700: #272727;
+  --color-ink-600: #3c3c3c;
+  --color-ink-400: #8c8c8c;
+  --color-ink-300: #adadad;
+  --color-ink-100: #f2f2f2;
+
+  /* Jaune Nikon — l'accent de marque */
+  --color-amber-400: #ffe100;
+  --color-amber-500: #e0c700;
+  --color-signal-blue: #2f8fe0;
   --color-signal-green: #34d399;
-  --color-signal-red: #f75353;
+  --color-signal-red: #e2001a;
+
+  /* Rayons resserrés : angles nets plutôt qu'arrondis "app grand public" */
+  --radius-sm: 0.0625rem;
+  --radius-md: 0.125rem;
+  --radius-lg: 0.1875rem;
+  --radius-xl: 0.25rem;
+  --radius-2xl: 0.3125rem;
+  --radius-3xl: 0.375rem;
 }
 
 html {
@@ -34,6 +48,17 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+h1 {
+  font-family: var(--font-display);
+}
+
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
 ::selection {
   background: var(--color-amber-400);
   color: var(--color-ink-950);
@@ -47,30 +72,64 @@ body {
   scrollbar-width: none;
 }
 
+/* Lecture chiffrée façon afficheur de boîtier (ouverture / vitesse / ISO) */
+.font-readout {
+  font-family: var(--font-readout);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Repères d'angle façon cadre de viseur */
+.viewfinder-corners {
+  position: relative;
+}
+.viewfinder-corners::before,
+.viewfinder-corners::after,
+.viewfinder-corners > .vf-tr,
+.viewfinder-corners > .vf-br {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--color-amber-400);
+  opacity: 0.8;
+}
+.viewfinder-corners::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--color-amber-400);
+  border-left: 2px solid var(--color-amber-400);
+}
+.viewfinder-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--color-amber-400);
+  border-right: 2px solid var(--color-amber-400);
+}
+
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  height: 6px;
-  border-radius: 999px;
+  height: 3px;
+  border-radius: 1px;
   background: var(--color-ink-700);
   outline: none;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
+  width: 10px;
+  height: 24px;
+  border-radius: 2px;
   background: var(--color-amber-400);
-  border: 3px solid var(--color-ink-950);
-  box-shadow: 0 0 0 1px rgba(245, 165, 36, 0.5);
+  border: 1px solid var(--color-ink-950);
   cursor: pointer;
 }
 input[type="range"]::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
+  width: 10px;
+  height: 24px;
+  border-radius: 2px;
   background: var(--color-amber-400);
-  border: 3px solid var(--color-ink-950);
+  border: 1px solid var(--color-ink-950);
   cursor: pointer;
 }

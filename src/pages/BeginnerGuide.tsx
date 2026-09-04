@@ -160,7 +160,7 @@ export default function BeginnerGuide() {
           />
           <Link
             to="/boitier"
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-ink-800 px-4 py-2 text-xs font-semibold text-amber-400 hover:bg-ink-700"
+            className="inline-flex w-fit items-center gap-2 rounded-sm bg-ink-800 px-4 py-2 text-xs font-semibold text-amber-400 hover:bg-ink-700"
           >
             🎛️ Voir où se trouve le sélecteur de mode et activer l'Auto ISO →
           </Link>
@@ -302,7 +302,7 @@ export default function BeginnerGuide() {
             { day: "Jour 7", text: "Mémoriser les commandes physiques avec le guide du boîtier, et combler les trous de vocabulaire avec le glossaire.", to: "/boitier" },
           ].map((item, i) => (
             <li key={i} className="flex gap-3 rounded-xl border border-ink-800 bg-ink-900 p-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-400 text-xs font-bold text-ink-950">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-amber-400 text-xs font-bold text-ink-950">
                 {i + 1}
               </span>
               <div>
