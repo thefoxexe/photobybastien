@@ -38,21 +38,23 @@ export default function Calculator() {
     closestIdx(APERTURE_STOPS, Number(params.get("aperture")) || 5.6),
   );
   const [shutterIdx, setShutterIdx] = useState(() =>
-    closestIdx(SHUTTER_STOPS as unknown as number[], Number(params.get("shutter")) || 1 / 250),
+    closestIdx(SHUTTER_STOPS as unknown as number[], Number(params.get("shutter")) || 1 / 1000),
   );
-  const [isoIdx, setIsoIdx] = useState(2); // 400 par défaut si on résout autre chose que l'ISO
+  const [isoIdx, setIsoIdx] = useState(() =>
+    closestIdx(ISO_STOPS, Number(params.get("iso")) || 400),
+  );
 
   useEffect(() => {
     const preset = params.get("scenario");
     if (preset) {
       const scenario = SCENARIOS.find((s) => s.id === preset);
       if (scenario?.calculatorPreset) {
-        setLightId(scenario.calculatorPreset.lightId);
-        setApertureIdx(closestIdx(APERTURE_STOPS, scenario.calculatorPreset.aperture));
-        setShutterIdx(
-          closestIdx(SHUTTER_STOPS as unknown as number[], scenario.calculatorPreset.shutter),
-        );
-        setSolveFor("iso");
+        const p = scenario.calculatorPreset;
+        setLightId(p.lightId);
+        setApertureIdx(closestIdx(APERTURE_STOPS, p.aperture));
+        setShutterIdx(closestIdx(SHUTTER_STOPS as unknown as number[], p.shutter));
+        if (p.iso) setIsoIdx(closestIdx(ISO_STOPS, p.iso));
+        setSolveFor(p.solveFor ?? "iso");
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

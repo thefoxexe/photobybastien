@@ -152,7 +152,7 @@ export function solveIso(
   ev100: number,
 ): SolveResult<number> {
   const needed = requiredEv100(aperture, shutter);
-  const rawIso = 100 * Math.pow(2, ev100 - needed);
+  const rawIso = 100 * Math.pow(2, needed - ev100);
   const clampedRaw = Math.min(Math.max(rawIso, ISO_STOPS[0]), ISO_STOPS[ISO_STOPS.length - 1]);
   return {
     value: nearestStop(clampedRaw, ISO_STOPS),
@@ -167,7 +167,7 @@ export function solveShutter(
   iso: number,
   ev100: number,
 ): SolveResult<number> {
-  const evAtIso = ev100 - log2(iso / 100);
+  const evAtIso = ev100 + log2(iso / 100);
   const rawShutter = (aperture * aperture) / Math.pow(2, evAtIso);
   const min = SHUTTER_STOPS[SHUTTER_STOPS.length - 1];
   const max = SHUTTER_STOPS[0];
@@ -185,7 +185,7 @@ export function solveAperture(
   iso: number,
   ev100: number,
 ): SolveResult<number> {
-  const evAtIso = ev100 - log2(iso / 100);
+  const evAtIso = ev100 + log2(iso / 100);
   const rawAperture = Math.sqrt(shutter * Math.pow(2, evAtIso));
   const min = APERTURE_STOPS[0];
   const max = APERTURE_STOPS[APERTURE_STOPS.length - 1];

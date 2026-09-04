@@ -22,6 +22,10 @@ export interface Scenario {
     lightId: string;
     aperture: number;
     shutter: number;
+    /** ISO fixe à préremplir (ex. paysage sur trépied) — sinon 400 par défaut */
+    iso?: number;
+    /** Variable à calculer à l'ouverture du calculateur (par défaut "iso") */
+    solveFor?: "iso" | "shutter" | "aperture";
   };
   // Réglages du guide boîtier (src/data/camera.ts) pertinents pour cette situation
   relatedMenuPaths: string[];
@@ -72,7 +76,7 @@ export const SCENARIOS: Scenario[] = [
       "Stabilisation 5 axes : tu peux descendre à 1/60s à main levée sans flou de bougé si le sujet est calme.",
       "Écran orientable pour cadrer bas ou en portrait à hauteur d'enfant.",
     ],
-    calculatorPreset: { lightId: "open-shade", aperture: 2, shutter: 1 / 200 },
+    calculatorPreset: { lightId: "open-shade", aperture: 2, shutter: 1 / 2000 },
     relatedMenuPaths: ["subject-detection", "auto-iso", "exposure-compensation", "aperture"],
   },
   {
@@ -119,7 +123,7 @@ export const SCENARIOS: Scenario[] = [
       "Joystick + molette pour déplacer le collimateur d'AF très vite sans lâcher le viseur.",
       "Double emplacement carte CFexpress/SD : shoote en rafale sans crainte du buffer.",
     ],
-    calculatorPreset: { lightId: "hazy-sun", aperture: 5.6, shutter: 1 / 250 },
+    calculatorPreset: { lightId: "hazy-sun", aperture: 8, shutter: 1 / 500 },
     relatedMenuPaths: ["auto-iso", "af-mode", "drive-mode"],
   },
   {
@@ -216,7 +220,7 @@ export const SCENARIOS: Scenario[] = [
       "Simulateur d'exposition dans le viseur électronique pour composer de nuit sans deviner.",
       "Format RAW 12-bit haute efficacité pour garder une belle marge de récupération des hautes lumières/ombres au traitement.",
     ],
-    calculatorPreset: { lightId: "hazy-sun", aperture: 11, shutter: 1 / 60 },
+    calculatorPreset: { lightId: "hazy-sun", aperture: 11, shutter: 1 / 125, iso: 100, solveFor: "shutter" },
     relatedMenuPaths: ["focus-shift", "aperture"],
   },
   {
